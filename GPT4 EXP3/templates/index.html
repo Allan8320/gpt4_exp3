@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailMind AI | Email Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">✉ MailMind <span>AI</span></div>
+            <p class="muted">INTELLIGENT EMAIL ASSISTANT</p>
+            <div class="nav active">✦ Email Assistant</div>
+            <div class="nav">◷ Conversation History</div>
+            <div class="nav">⚙ AI Settings</div>
+            <div class="sidebar-bottom">
+                <div class="status-dot"></div>
+                Ollama Local AI
+                <p class="muted">Your AI runs on your computer</p>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header>
+                <div>
+                    <h1>Email Assistant</h1>
+                    <p class="muted">Generate thoughtful, professional customer replies.</p>
+                </div>
+                <span class="status">● Local AI</span>
+            </header>
+
+            <section class="welcome">
+                <div class="sparkle">✦</div>
+                <h2>Your customer support copilot</h2>
+                <p>Understand customer intent, find similar emails, and create better replies.</p>
+            </section>
+
+            <section class="workspace">
+                <div class="panel">
+                    <h3>Customer email</h3>
+                    <p class="muted">Enter the details to begin.</p>
+
+                    <form id="emailForm">
+                        <label for="customer_name">Customer name</label>
+                        <input id="customer_name" name="customer_name"
+                               placeholder="e.g. John" required>
+
+                        <label for="subject">Email subject</label>
+                        <input id="subject" name="subject"
+                               placeholder="e.g. Delivery Delay" required>
+
+                        <label for="email">Customer message</label>
+                        <textarea id="email" name="email" rows="6"
+                                  placeholder="Write or paste the customer email..."
+                                  required></textarea>
+
+                        <button id="sendButton" type="submit">
+                            ✦ Analyze email and generate reply
+                        </button>
+                    </form>
+                </div>
+
+                <div class="panel results">
+                    <h3>AI response</h3>
+                    <p class="muted">Your generated response will appear here.</p>
+
+                    <div id="placeholder" class="empty">
+                        <div class="empty-icon">✉</div>
+                        <h3>Ready when you are</h3>
+                        <p>Submit a customer email to start the analysis.</p>
+                    </div>
+
+                    <div id="loading" class="hidden">
+                        <div class="spinner"></div>
+                        <p>Ollama is analyzing the email...</p>
+                    </div>
+
+                    <div id="result" class="hidden">
+                        <div class="result-label">DETECTED INTENT</div>
+                        <div id="intent" class="intent"></div>
+
+                        <div class="result-label">GENERATED REPLY</div>
+                        <div id="reply" class="reply"></div>
+
+                        <div class="result-label">50-WORD SUMMARY</div>
+                        <div id="summary" class="summary"></div>
+
+                        <label for="tone">Improve reply tone</label>
+                        <select id="tone">
+                            <option value="Professional">Professional</option>
+                            <option value="Friendly">Friendly</option>
+                            <option value="Formal">Formal</option>
+                            <option value="Empathetic">Empathetic</option>
+                        </select>
+                        <button type="button" id="toneButton" class="secondary">
+                            Improve tone
+                        </button>
+                        <button type="button" id="saveButton" class="secondary">
+                            Save reply
+                        </button>
+                        <p id="message" class="muted"></p>
+                    </div>
+
+                    <div id="error" class="error hidden"></div>
+                </div>
+            </section>
+
+            <footer>MailMind AI · Built with Python, Flask and Ollama</footer>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
